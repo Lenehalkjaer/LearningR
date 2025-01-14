@@ -14,20 +14,16 @@ format: html
 
 ```{r setup}
 library (tidyverse)
+post_meal_data <- read_csv2 (here::here("data/post-meal-insulin.csv")) 
 ```
-## About me 
 
-- Lene Halkjær
-- PhD-student
-- Steno Diabetes Center Aarhus
+## Showing the data
 
-I'm a **PhD-student** working at Steno Diabetes Center. I'm doing research within *diabetes*.
-
-# Simple code
 ```{r}
-3*3
+post_meal_data
 ```
 
-## Testing for git
+```{r}
+glimpse(post_meal_data)
+```
 
-The weather is cold
