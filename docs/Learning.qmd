@@ -26,7 +26,8 @@ I'm a **PhD-student** working at Steno Diabetes Center. I'm doing research withi
 # Simple code
 ```{r}
 3*3
+```
 
-___```
+## Testing for git
 
-
+The weather is cold
