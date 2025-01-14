@@ -1,0 +1,32 @@
+---
+title: "Reproducible_document"
+author: "Lene Halkjær"
+format: html
+---
+
+##Basic of R
+
+```{r}
+1 + 1
+```
+
+##setup code chunk
+
+```{r setup}
+library (tidyverse)
+```
+## About me 
+
+- Lene Halkjær
+- PhD-student
+- Steno Diabetes Center Aarhus
+
+I'm a **PhD-student** working at Steno Diabetes Center. I'm doing research within *diabetes*.
+
+# Simple code
+```{r}
+3*3
+
+___```
+
+
