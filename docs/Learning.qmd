@@ -14,9 +14,9 @@ format: html
 
 ```{r setup}
 #| message: false
-#| warning: false 
-library (tidyverse)
-post_meal_data <- read_csv2 (here::here("data/post-meal-insulin.csv")) 
+#| warning: false
+library(tidyverse)
+post_meal_data <- read_csv2(here::here("data/post-meal-insulin.csv"))
 ```
 
 ## Showing the data
@@ -25,7 +25,6 @@ post_meal_data <- read_csv2 (here::here("data/post-meal-insulin.csv"))
 post_meal_data
 ```
 ```{r}
-
 ```
 
 ```{r}
@@ -33,19 +32,19 @@ glimpse(post_meal_data)
 ```
 
 ```{r}
-library (ggplot2)
+library(ggplot2)
 geom_blank()
 theme(axis.title = )
 ```
 ```{r}
-ggplot(post_meal_data, aes(x=BMI)) + 
+ggplot(post_meal_data, aes(x = BMI)) +
   geom_histogram()
 ```
 
 ```{r}
 #| fig-cap: "Distribution of BMI"
 #| label: fig-bmi-histo
-ggplot(post_meal_data, aes(x=BMI)) + 
+ggplot(post_meal_data, aes(x = BMI)) +
   geom_histogram()
 ```
 @fig-bmi-histo
@@ -56,7 +55,78 @@ ggplot(post_meal_data, aes(x=BMI)) +
 ```{r}
 #| fig-cap: "group"
 #| label: fig-group-bar
-ggplot(post_meal_data, aes(x=Group))+
+ggplot(post_meal_data, aes(x = Group)) +
   geom_bar()
 ```
 See @fig-group-bar above for a cool plot!
+
+### Exercice discrete plots
+
+```{r}
+#| fig-cap: "glykemi"
+#| label: fig-glykemi-bar
+ggplot(post_meal_data, aes(x = glykemi)) +
+  geom_bar()
+```
+See @fig-glykemi-bar above for a cool plot!
+
+```{r}
+post_meal_data |>
+  ggplot(aes(x = Group, fill = glykemi)) +
+  geom_bar()
+```
+
+```{r}
+post_meal_data |>
+  ggplot(aes(x = Group, fill = as.character(glykemi))) +
+  geom_bar()
+```
+
+```{r}
+post_meal_data |>
+  ggplot(aes(x = Group, fill = as.character(glykemi))) +
+  geom_bar(position = position_dodge())
+```
+## Putting two plots side by side
+
+```{r}
+ggplot(post_meal_data, aes(x = BMI)) +
+  geom_histogram()
+```
+
+```{r}
+ggplot(post_meal_data, aes(x = glykemi)) +
+  geom_bar()
+```
+
+```{r side-by-side-figs}
+#| label: fig-bmi-glycemia
+#| fig-cap: "BMI and glycemia, side by side."
+#| fig-subcap:
+#|   - "Distribution of BMI."
+#|   - "Number of those with glycemia."
+#| layout-ncol: 2
+ggplot(post_meal_data, aes(x = BMI)) +
+  geom_histogram()
+
+ggplot(post_meal_data, aes(x = glykemi)) +
+  geom_bar()
+```
+
+## Plotting to continious variables
+```{r scatter plot}
+#| fig-cap: "scatterplot showing BMI against auc of bloodglucose"
+#| label: fig-bmi-auc-pg
+
+ggplot(post_meal_data, aes(x = BMI, y = auc_pg)) +
+  geom_point() + 
+  geom_smooth()
+```
+
+```{r}
+
+```
+
+
+
+
