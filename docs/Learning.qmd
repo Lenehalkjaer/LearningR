@@ -24,8 +24,39 @@ post_meal_data <- read_csv2 (here::here("data/post-meal-insulin.csv"))
 ```{r}
 post_meal_data
 ```
+```{r}
+
+```
 
 ```{r}
 glimpse(post_meal_data)
 ```
 
+```{r}
+library (ggplot2)
+geom_blank()
+theme(axis.title = )
+```
+```{r}
+ggplot(post_meal_data, aes(x=BMI)) + 
+  geom_histogram()
+```
+
+```{r}
+#| fig-cap: "Distribution of BMI"
+#| label: fig-bmi-histo
+ggplot(post_meal_data, aes(x=BMI)) + 
+  geom_histogram()
+```
+@fig-bmi-histo
+
+
+## Exercise : discrete plots
+
+```{r}
+#| fig-cap: "group"
+#| label: fig-group-bar
+ggplot(post_meal_data, aes(x=Group))+
+  geom_bar()
+```
+See @fig-group-bar above for a cool plot!
